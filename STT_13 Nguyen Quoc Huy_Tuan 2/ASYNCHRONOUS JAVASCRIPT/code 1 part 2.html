@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>code 1 part 2</title>
+</head>
+<body>
+    <script>
+     function renderCountry(country) {
+  fetch(`https://restcountries.com/v2/name/${country}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Country not found');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const [countryData] = data;
+      console.log(`Country: ${countryData.name}`);
+    })
+    .catch((error) => {
+      console.error(`Error: ${error.message}`);
+    });
+}
+
+
+function whereAmI(lat, lng) {
+  fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Could not fetch data');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(`You are in ${data.city}, ${data.country}`);
+    
+      renderCountry(data.country);
+    })
+    .catch((error) => {
+      console.error(`Error: ${error.message}`);
+    });
+}
+
+
+
+whereAmI(52.508, 13.381); 
+whereAmI(19.037, 72.873);
+whereAmI(-33.933, 18.474);
+
+    </script>
+</body>
+</html>

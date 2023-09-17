@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code 1 part1</title>
+</head>
+<body>
+    <script>
+    function whereAmI(lat, lng) {
+  fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Could not fetch data');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(`You are in ${data.city}, ${data.country}`);
+    })
+    .catch((error) => {
+      console.error(`Error: ${error.message}`);
+    });
+}
+
+// Sử dụng hàm whereAmI với tọa độ cụ thể
+whereAmI(52.508, 13.381);
+
+
+    </script>
+</body>
+</html>

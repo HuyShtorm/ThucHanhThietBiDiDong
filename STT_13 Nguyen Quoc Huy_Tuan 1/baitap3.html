@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baitap3</title>
+</head>
+
+<body>
+    <script>
+        function calculateAverage(scores) {
+            let total = 0;
+            for (let i = 0; i < scores.length; i++) {
+                total += scores[i];
+            }
+            return total / scores.length;
+        }
+
+
+        var dolphinsScores1 = [96, 108, 89];
+        var koalasScores1 = [88, 91, 110];
+
+        var dolphinsScoresBonus1 = [97, 112, 101];
+        var koalasScoresBonus1 = [109, 95, 123];
+
+        var dolphinsScoresBonus2 = [97, 112, 101];
+        var koalasScoresBonus2 = [109, 95, 106];
+
+
+        function checkWinner(dolphinsScores, koalasScores) {
+            var dolphinsAverage = calculateAverage(dolphinsScores);
+            var koalasAverage = calculateAverage(koalasScores);
+
+            if (dolphinsAverage >= 100 && dolphinsAverage > koalasAverage) {
+                return "Dolphins win!";
+            } else if (koalasAverage >= 100 && koalasAverage > dolphinsAverage) {
+                return "Koalas win!";
+            } else if (dolphinsAverage >= 100 && koalasAverage >= 100 && dolphinsAverage === koalasAverage) {
+                return "It's a draw!";
+            } else {
+                return "No one wins the trophy.";
+            }
+        }
+
+        console.log("Data 1: " + checkWinner(dolphinsScores1, koalasScores1));
+
+        console.log("Data Bonus 1: " + checkWinner(dolphinsScoresBonus1, koalasScoresBonus1));
+
+        console.log("Data Bonus 2: " + checkWinner(dolphinsScoresBonus2, koalasScoresBonus2));
+    </script>
+</body>
+
+</html>

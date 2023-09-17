@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2OOP
+
+    </title>
+</head>
+
+<body>
+    <script>
+       
+        class CarCl {
+            constructor(make, speed) {
+                this.make = make;
+                this.speed = speed;
+            }
+
+           
+            get speedUS() {
+                return this.speed / 1.6;
+            }
+
+            set speedUS(speedUS) {
+                this.speed = speedUS * 1.6;
+            }
+
+          
+            accelerate() {
+                this.speed += 10;
+                console.log(`${this.make} is now going at ${this.speed} km/h.`);
+            }
+
+           
+            brake() {
+                this.speed -= 5;
+                console.log(`${this.make} is now going at ${this.speed} km/h.`);
+            }
+        }
+
+        const car1 = new CarCl('Ford', 120);
+        console.log(`Data car 1: '${car1.make}' going at ${car1.speed} km/h`);
+
+        car1.accelerate();
+        car1.brake();
+
+        console.log(`Current speed in mi/h: ${car1.speedUS}`);
+        car1.speedUS = 75; 
+        console.log(`Updated speed in mi/h: ${car1.speedUS}`);
+        console.log(`Updated speed in km/h: ${car1.speed}`);
+    </script>
+</body>
+
+</html>

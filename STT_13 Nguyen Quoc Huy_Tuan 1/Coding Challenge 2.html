@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge #2</title>
+</head>
+
+<body>
+    <script>
+
+        const game = {
+            team1: 'Bayern Munich',
+            team2: 'Borussia Dortmund',
+            players: [
+                'Neuer', 'Pavard', 'Lucas', 'Hernandez', 'Davies', 'Kimmich', 'Goretzka', 'Coman', 'Muller', 'Gnarby', 'Lewandowski',
+                'Burki', 'Schulz', 'Hummels', 'Akanji', 'Hakimi', 'Weigl', 'Witsel', 'Hazard', 'Brandt', 'Sancho', 'Gotze'
+            ],
+            score: '4:0',
+            scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+            date: 'Nov 9th, 2037',
+            odds: {
+                team1: 1.33,
+                x: 3.25,
+                team2: 6.5
+            }
+        };
+
+     
+        game.scored.forEach((player, index) => {
+            console.log(`Goal ${index + 1}: ${player}`);
+        });
+
+        const odds = Object.values(game.odds);
+        const averageOdd = odds.reduce((acc, odd) => acc + odd, 0) / odds.length;
+        console.log(`Average odd: ${averageOdd.toFixed(2)}`);
+
+        
+        for (const [team, odd] of Object.entries(game.odds)) {
+            const teamName = game[team];
+            console.log(`Odd of victory ${teamName}: ${odd}`);
+        }
+
+      
+        const scorers = {};
+        game.scored.forEach((player) => {
+            scorers[player] = (scorers[player] || 0) + 1;
+        });
+
+        console.log('Scorers:', scorers);
+    </script>
+</body>
+
+</html>

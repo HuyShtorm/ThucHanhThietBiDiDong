@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baitap1</title>
+</head>
+
+<body>
+    <script>
+        function BMI(mass, height) {
+            return mass / (height * height);
+        }
+
+        var data1 = {
+            mark: {
+                mass: 78,
+                height: 1.69
+            },
+            john: {
+                mass: 92,
+                height: 1.95
+            }
+        };
+        var data2 = {
+            mark: {
+                mass: 95,
+                height: 1.88
+            },
+            john: {
+                mass: 85,
+                height: 1.76
+            }
+        };
+        var BMI1 = BMI(data1.mark.mass, data1.mark.height) > BMI(data1.john.mass, data1.john.height);
+        var BMI2 = BMI(data2.mark.mass, data2.mark.height) > BMI(data2.john.mass, data2.john.height);
+        console.log((BMI1 ? "(Mark>John)" : "(Mark<John)"));
+        console.log((BMI2 ? "(Mark>John)" : "(Mark<John)"));
+    </script>
+</body>
+
+</html>

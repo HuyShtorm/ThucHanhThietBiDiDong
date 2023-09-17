@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge #4</title>
+</head>
+
+<body>
+    <script>
+       
+        class CarCl {
+            constructor(make, speed) {
+                this.make = make;
+                this.speed = speed;
+            }
+
+           
+            accelerate() {
+                this.speed += 10;
+                return this;
+            }
+
+     
+            brake() {
+                this.speed -= 5;
+                return this;
+            }
+        }
+
+      
+        class EVCl extends CarCl {
+            charge; 
+
+            constructor(make, speed, charge) {
+                super(make, speed);
+                this.charge = charge;
+            }
+
+
+            chargeBattery(chargeTo) {
+                this.charge = chargeTo;
+                return this; 
+            }
+
+          
+            accelerate() {
+                this.speed += 20;
+                this.charge -= 1;
+                console.log(`${this.make} going at ${this.speed} km/h, with a charge of ${this.charge}%`);
+                return this;
+        }
+
+    }
+        const electricCar = new EVCl('Rivian', 120, 23);
+        console.log(`Data car 1: '${electricCar.make}' going at ${electricCar.speed} km/h, with a charge of ${electricCar.charge}%`);
+
+        electricCar.accelerate().brake().chargeBattery(90).accelerate();
+    </script>
+</body>
+
+</html>

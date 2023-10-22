@@ -20,7 +20,7 @@ const Header = () => {
       <View style={styles.container}>
         <Pressable >
           <Image
-            source={require("../../../assets/IMG/outlined.png")}
+            source={require("../img")}
             style={styles.img}
           ></Image>
         </Pressable>
@@ -29,7 +29,7 @@ const Header = () => {
   
         <Pressable>
           <Image
-            source={require("../../../assets/IMG/bi_cart-check.png")}
+            source={require("../img/group.png")}
             style={styles.img}
           ></Image>
         </Pressable>
